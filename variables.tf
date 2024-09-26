@@ -7,7 +7,7 @@ variable "region" {
 variable "vpc_name" {
   type        = string
   description = "name of the vpc to be created"
-  default     = "eks-vpc"
+  default     = "devops-vpc"
 }
 
 variable "vpc_cidr" {
@@ -19,19 +19,19 @@ variable "vpc_cidr" {
 variable "public_subnets" {
   type        = list(string)
   description = "public subnets to be created"
-  default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  default     = ["10.0.1.0/24"]
 }
 
 variable "private_subnets" {
   type        = list(string)
   description = "private subnets to be created"
-  default     = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+  default     = ["10.0.101.0/24"]
 }
 
 variable "azs" {
   type        = list(string)
   description = "availability zones"
-  default     = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
+  default     = ["ap-southeast-1a"]
 }
 
 variable "ecr_name" {
@@ -68,4 +68,10 @@ variable "k8s_version" {
   type        = string
   description = "k8s version"
   default     = "1.30"
+}
+
+variable "sg_name" {
+  type        = string
+  description = "security group allow ports"
+  default     = "devops-sg"
 }
