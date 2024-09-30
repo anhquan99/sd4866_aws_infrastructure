@@ -19,19 +19,19 @@ variable "vpc_cidr" {
 variable "public_subnets" {
   type        = list(string)
   description = "public subnets to be created"
-  default     = ["10.0.1.0/24"]
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
 variable "private_subnets" {
   type        = list(string)
   description = "private subnets to be created"
-  default     = ["10.0.101.0/24"]
+  default     = ["10.0.101.0/24", "10.0.102.0/24"]
 }
 
 variable "azs" {
   type        = list(string)
   description = "availability zones"
-  default     = ["ap-southeast-1a"]
+  default     = ["ap-southeast-1a", "ap-southeast-1b"]
 }
 
 variable "ecr_name" {
@@ -55,7 +55,7 @@ variable "ec2_name" {
 variable "instance_type" {
   type        = string
   description = "ec2 instance type"
-  default     = "t2.micro"
+  default     = "t2.medium"
 }
 
 variable "cluster_name" {

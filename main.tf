@@ -21,25 +21,19 @@ module "security_group" {
   source              = "terraform-aws-modules/security-group/aws"
   name                = var.sg_name
   vpc_id              = module.vpc.vpc_id
-  ingress_rules       = ["ssh-tcp", "https-443-tcp", "https-8443-tcp", "http-80-tcp", "http-8080-tcp"]
+  ingress_rules       = ["ssh-tcp", "minio-tcp", "http-8080-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
-  egress_rules        = ["ssh-tcp", "https-443-tcp", "https-8443-tcp", "http-80-tcp", "http-8080-tcp"]
+  egress_rules        = ["ssh-tcp", "minio-tcp", "http-8080-tcp"]
 }
 
 data "aws_ami" "base_ami" {
   most_recent = true
-  owners      = ["amazon"]
+  owners      = ["self"]
 
   filter {
     name   = "name"
-    values = ["al2023-ami-2023.*-x86_64"]
+    values = ["devops-ec2-ami-1"]
   }
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-
   filter {
     name   = "virtualization-type"
     values = ["hvm"]
