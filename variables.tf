@@ -75,3 +75,9 @@ variable "sg_name" {
   description = "security group allow ports"
   default     = "devops-sg"
 }
+
+variable "image_tag_mutability" {
+  type        = bool
+  default     = true
+  description = "value of image tag mutability"
+}
