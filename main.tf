@@ -164,7 +164,7 @@ module "security_group" {
   vpc_id              = module.vpc.vpc_id
   ingress_rules       = ["ssh-tcp", "minio-tcp", "http-8080-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
-  egress_rules        = ["ssh-tcp", "minio-tcp", "http-8080-tcp"]
+  egress_rules        = ["all-all"]
 }
 
 # EC2

@@ -55,7 +55,7 @@ variable "ec2_name" {
 variable "instance_type" {
   type        = string
   description = "ec2 instance type"
-  default     = "t2.medium"
+  default     = "t2.large"
 }
 
 variable "cluster_name" {
